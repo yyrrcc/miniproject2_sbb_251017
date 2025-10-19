@@ -1,4 +1,4 @@
-package com.mycompany.mini2.board;
+package com.mycompany.mini2.comment;
 
 import java.time.LocalDateTime;
 
@@ -19,13 +19,12 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class BoardEntity {
+public class Comment {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id; // 기본키
 	
-	private String title; // 제목
 	private String content; // 내용
 	
 	@CreationTimestamp // 자동으로 현재 날짜와 시간 삽입. 수정 할 땐 @UpdateTimestamp 사용

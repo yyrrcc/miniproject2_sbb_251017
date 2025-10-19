@@ -15,7 +15,7 @@ public class MemberSecurityService implements UserDetailsService{
 	@Override
 	// 유저에게 받은 username과 암호화된 password를 조회해서 권한을 준다
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		MemberEntity member = memberRepository.findByUsername(username).orElseThrow(
+		Member member = memberRepository.findByUsername(username).orElseThrow(
 				() -> new UsernameNotFoundException("사용자 없음"));
 		return org.springframework.security.core.userdetails.User
 				.withUsername(member.getUsername())

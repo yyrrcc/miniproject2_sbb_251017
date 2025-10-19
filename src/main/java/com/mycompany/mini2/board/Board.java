@@ -1,0 +1,48 @@
+package com.mycompany.mini2.board;
+
+import java.time.LocalDateTime;
+
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.mycompany.mini2.member.Member;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Entity
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+public class Board {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id; // 기본키
+	
+	private String title; // 제목
+	private String content; // 내용
+	
+	@CreationTimestamp // 자동으로 현재 날짜와 시간 삽입.
+	private LocalDateTime createdAt;
+	
+	@UpdateTimestamp // 수정 할 땐 @UpdateTimestamp 사용
+	private LocalDateTime updatedAt;
+	
+	// 게시글:유저 = n:1, 지연로딩 통해서 불필요한 값 제외 (성능 최적화)
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+	private Member writer;
+	
+
+}

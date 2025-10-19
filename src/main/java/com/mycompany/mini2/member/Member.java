@@ -1,8 +1,4 @@
-package com.mycompany.mini2.comment;
-
-import java.time.LocalDateTime;
-
-import org.hibernate.annotations.CreationTimestamp;
+package com.mycompany.mini2.member;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -19,16 +15,22 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class CommentEntity {
+public class Member {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id; // 기본키
 	
-	private String content; // 내용
+	@Column(unique = true, nullable = false)
+	private String username; // 아이디
 	
-	@CreationTimestamp // 자동으로 현재 날짜와 시간 삽입. 수정 할 땐 @UpdateTimestamp 사용
-	private LocalDateTime createdAt;
+	@Column(nullable = false)
+	private String password; // 비밀번호
 	
+	@Column(nullable = false)
+	private String name; // 이름
+	
+	@Column(unique = true, nullable = false)
+	private String email; // 이메일
 
 }
