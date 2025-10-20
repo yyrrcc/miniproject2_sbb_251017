@@ -11,7 +11,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class MovieCommentDto {
+public class MovieReviewDto {
 	
 	@NotBlank(message = "한줄평을 입력해 주세요")
 	@Size(min = 2, message = "한줄평은 최소 2글자 이상이어야 합니다")

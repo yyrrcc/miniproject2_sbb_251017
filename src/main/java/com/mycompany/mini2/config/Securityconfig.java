@@ -43,7 +43,11 @@ public class Securityconfig {
 							"/api/board", 
 							"/api/board/**", 
 							"/api/comments", 
-							"/api/comments/**").permitAll()
+							"/api/comments/**",
+							"/api/movies", 
+							"/api/movies/**", 
+							"/api/movies/reviews",
+							"/api/movies/reviews/**").permitAll()
 					.requestMatchers("/api/auth/me").authenticated()
 					.anyRequest().authenticated())
 			.formLogin(login -> login
