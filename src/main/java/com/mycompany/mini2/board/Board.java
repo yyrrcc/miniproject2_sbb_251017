@@ -1,19 +1,24 @@
 package com.mycompany.mini2.board;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.mycompany.mini2.comment.Comment;
 import com.mycompany.mini2.member.Member;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -43,6 +48,12 @@ public class Board {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	private Member writer;
+	
+	// 게시글:댓글 = 1:n
+	// mappedBy는 양방향 연관관계에서 누가 외래키를 관리할 지 정하는 것(보통 many쪽이 주인 - 데이터베이스에서 외래키를 실제로 들고 있는 엔티티 쪽)
+	// 댓글이 있는 게시글 지울 때 cascade 해줘야 함!
+	@OneToMany(mappedBy = "board", cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<Comment> comments = new ArrayList<>();
 	
 
 }

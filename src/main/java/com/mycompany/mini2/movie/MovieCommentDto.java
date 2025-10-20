@@ -1,4 +1,4 @@
-package com.mycompany.mini2.comment;
+package com.mycompany.mini2.movie;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -11,10 +11,10 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class CommentDto {
+public class MovieCommentDto {
 	
-	@NotBlank(message = "내용을 입력해 주세요")
-	@Size(min = 3, message = "댓글 내용은 최소 3글자 이상이어야 합니다")
-	private String content; // 내용
+	@NotBlank(message = "한줄평을 입력해 주세요")
+	@Size(min = 2, message = "한줄평은 최소 2글자 이상이어야 합니다")
+	private String content;
 
 }

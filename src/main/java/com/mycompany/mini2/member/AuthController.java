@@ -62,10 +62,10 @@ public class AuthController {
 	@GetMapping("/me")
 	public ResponseEntity<?> me(Authentication auth){
 		auth = SecurityContextHolder.getContext().getAuthentication();
-		if (auth == null || !auth.isAuthenticated()
-				|| "anonymousUser".equals(auth.getName())) {
-	        return ResponseEntity.status(401).body("로그인이 필요합니다");
-	    }	    
+//		if (auth == null || !auth.isAuthenticated()
+//				|| "anonymousUser".equals(auth.getName())) {
+//	        return ResponseEntity.status(401).body("로그인이 필요합니다");
+//	    }	    
 		return ResponseEntity.ok(Map.of("username", auth.getName())); // username으로 로그인한 사용자 정보를 넣어줌
 	}
 
