@@ -61,12 +61,27 @@ public class MovieController {
 //        movieCommentRepository.save(movieComment);
 //        return ResponseEntity.ok(movieComment);
 //    }
+	// 영화 정보 가져오기
+	@GetMapping
+	public ResponseEntity<?> listMovies() {
+		List<Movie> movies = movieRepository.findAll();
+		return ResponseEntity.ok(movies);
+	}
 
     // 모든 한줄평 불러오기
     @GetMapping("/reviews")
     public ResponseEntity<?> getMovieReviews() {
-        List<MovieReview> movieReviews = movieReviewRepository.findAll();
-        return ResponseEntity.ok(movieReviews);
+        List<MovieReview> movieReviews = movieReviewRepository.findAll(); // movieReview 모두 불러온 값
+        // dto로 변환해주기 .. 이 코드 잘 모르겠음.. 순서도 중요한 것 같은데 .. **
+        List<MovieReviewDto> reviewDtos = movieReviews.stream()
+                .map(review -> new MovieReviewDto(
+                    review.getId(),
+                    review.getMovie().getId(),   // movie_id 명시적으로 전달
+                    review.getWriter().getUsername(),
+                    review.getContent()
+                ))
+                .toList();
+        return ResponseEntity.ok(reviewDtos);
     }
     
     // 1개 영화에 모든 한줄평 목록
