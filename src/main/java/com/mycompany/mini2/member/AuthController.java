@@ -2,11 +2,13 @@ package com.mycompany.mini2.member;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,14 +34,12 @@ public class AuthController {
 	public ResponseEntity<?> signup(@Valid @RequestBody MemberDto memberDto, BindingResult result) {
 		if(result.hasErrors()) {
 			Map<String, String> errors = new HashMap<>();
-			System.out.println("에러의 내용" + errors);
 			// getFieldErrors()로 에러 꺼내서 forEach로 돌려준다
 			result.getFieldErrors().forEach(
 				err -> {
 					errors.put(err.getField(), err.getDefaultMessage());
 				}
 			);
-			System.out.println("에러의 내용" + errors);
 			return ResponseEntity.badRequest().body(errors); // badRequest은 400 에러
 		}
 		Member member = new Member();
@@ -47,7 +47,6 @@ public class AuthController {
 		if (memberRepository.findByUsername(memberDto.getUsername()).isPresent()) {
 			Map<String, String> error = new HashMap<>();
 			error.put("idError", "이미 존재하는 아이디입니다.");
-			System.out.println(error);
 			return ResponseEntity.badRequest().body(error);
 		}
 		member.setPassword(passwordEncoder.encode(memberDto.getPassword()));
@@ -67,6 +66,39 @@ public class AuthController {
 //	        return ResponseEntity.status(401).body("로그인이 필요합니다");
 //	    }	    
 		return ResponseEntity.ok(Map.of("username", auth.getName())); // username으로 로그인한 사용자 정보를 넣어줌
+	}
+	
+	// 회원 정보 가져오기
+	@GetMapping("/mypage")
+	public ResponseEntity<?> getMember(Authentication auth) {
+		Member member = memberRepository.findByUsername(auth.getName()).orElseThrow(
+				() -> new UsernameNotFoundException("사용자를 찾을 수 없음"));
+		return ResponseEntity.ok(member);
+	}
+	
+	// 회원 정보 수정
+	@PostMapping("/mypage")
+	public ResponseEntity<?> updateMember(@Valid @RequestBody MemberDto memberDto,
+			BindingResult result, Authentication auth) {
+		if (auth == null || !auth.isAuthenticated()) {
+			return ResponseEntity.badRequest().body("권한이 없습니다.");
+		}
+		if(result.hasErrors()) {
+			Map<String, String> errors = new HashMap<>();
+			result.getFieldErrors().forEach(
+				err -> {
+					errors.put(err.getField(), err.getDefaultMessage());
+				}
+			);
+			return ResponseEntity.badRequest().body(errors); // badRequest은 400 에러
+		}
+		Member member = memberRepository.findByUsername(auth.getName()).orElseThrow(
+				() -> new UsernameNotFoundException("사용자를 찾을 수 없음"));
+		member.setName(memberDto.getName());
+		member.setPassword(passwordEncoder.encode(memberDto.getPassword()));
+		member.setEmail(memberDto.getEmail());
+		memberRepository.save(member);
+		return ResponseEntity.ok(member);
 	}
 
 }
