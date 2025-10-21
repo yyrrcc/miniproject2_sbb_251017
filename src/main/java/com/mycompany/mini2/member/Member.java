@@ -1,5 +1,7 @@
 package com.mycompany.mini2.member;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -25,6 +27,7 @@ public class Member {
 	private String username; // 아이디
 	
 	@Column(nullable = false)
+	@JsonIgnore // 비밀번호는 굳이 가져올 필요가 없으니 추가
 	private String password; // 비밀번호
 	
 	@Column(nullable = false)
