@@ -1,0 +1,46 @@
+.form-container {
+  width: 60%;
+  margin: 80px auto;
+  font-family: "Pretendard", sans-serif;
+}
+
+.form-container h2 {
+  color: #503396;
+  margin-bottom: 25px;
+}
+
+.board-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.board-form input,
+.board-form textarea {
+  border: 1.5px solid #ddd;
+  border-radius: 10px;
+  padding: 12px;
+  font-size: 1rem;
+  transition: border 0.3s;
+}
+
+.board-form input:focus,
+.board-form textarea:focus {
+  outline: none;
+  border-color: #503396;
+}
+
+.board-form button {
+  background-color: #503396;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.board-form button:hover {
+  background-color: #6b52c0;
+}

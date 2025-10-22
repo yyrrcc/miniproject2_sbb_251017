@@ -1,0 +1,105 @@
+.movie-card {
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 700px;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.movie-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+.movie-poster {
+  width: 150px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.movie-info {
+  flex: 1;
+}
+
+.movie-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.movie-desc {
+  color: #666;
+  font-size: 0.95rem;
+  margin: 8px 0 12px;
+}
+
+.like-section {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color: #888;
+  transition: color 0.2s ease;
+}
+
+.like-section:hover {
+  color: #00bfa5;
+}
+
+.heart {
+  margin-right: 8px;
+  font-size: 1.3rem;
+}
+
+.liked {
+  color: #ff5b5b;
+}
+
+.review-section {
+  margin-top: 15px;
+}
+
+.review-form {
+  display: flex;
+  gap: 10px;
+}
+
+.review-input {
+  flex: 1;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 8px 10px;
+  font-size: 0.9rem;
+}
+
+.review-btn {
+  background-color: #00bfa5;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 8px 14px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.2s ease;
+}
+
+.review-btn:hover {
+  background-color: #009e8c;
+}
+
+.review-list {
+  margin-top: 10px;
+  padding-left: 5px;
+  list-style: none;
+}
+
+.review-item {
+  font-size: 0.9rem;
+  border-bottom: 1px solid #eee;
+  padding: 5px 0;
+}

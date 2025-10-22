@@ -1,0 +1,70 @@
+/* 댓글 */
+.comment-section {
+  margin-top: 50px;
+}
+
+.comment-section h3 {
+  color: #503396;
+  margin-bottom: 15px;
+}
+
+.comment-section ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.comment-section li {
+  background: #faf6ff;
+  padding: 10px 15px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.comment-form {
+  display: flex;
+  gap: 10px;
+}
+
+.comment-form input {
+  flex: 1;
+  padding: 10px;
+  border: 1.5px solid #ddd;
+  border-radius: 10px;
+}
+
+.comment-form button {
+  background-color: #503396;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.comment-form button:hover {
+  background-color: #6b52c0;
+}
+
+.comment-btn {
+  display: flex;
+  justify-content: end;
+  gap: 10px;
+}
+
+.comment-edit-btn,
+.comment-delete-btn {
+  display: inline-block;
+  text-decoration: none;
+  background-color: #503396;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-weight: 500;
+}
+
+.comment-edit-btn:hover,
+.comment-delete-btn:hover {
+  background-color: #6b52c0;
+}

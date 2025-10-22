@@ -1,0 +1,165 @@
+.movie-content {
+  display: flex;
+  /* flex-wrap: wrap; */
+  flex-direction: column;
+  justify-content: center;
+  gap: 24px;
+  padding: 20px;
+}
+
+.movie-card {
+  display: flex;
+  height: 400px;
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.movie-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.12);
+}
+
+.movie-poster {
+  height: 100%;
+  border-radius: 16px;
+  object-fit: cover;
+}
+
+.movie-info {
+  /* display: flex; */
+  width: 100%;
+  padding: 16px;
+  text-align: center;
+}
+
+.movie-title {
+  color: #1a237e;
+  font-size: 1.3rem;
+  margin-bottom: 8px;
+}
+
+.movie-desc {
+  color: #555;
+  font-size: 0.95rem;
+  height: 60px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 12px;
+}
+
+.movie-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+/* 찜하기 부분 */
+.like-button {
+  border: none;
+  background: #e3e3e3;
+  color: #333;
+  border-radius: 20px;
+  padding: 6px 14px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  font-weight: 500;
+}
+
+.like-button:hover {
+  background: #c5cae9;
+}
+
+.like-button.liked {
+  background: #3949ab;
+  color: white;
+}
+
+.like-display {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 1.1rem;
+  color: #757575;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.like-display:hover {
+  color: #3949ab;
+}
+
+.like-display.liked {
+  color: #e53935;
+}
+
+.comment-form {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.comment-form input {
+  width: 70%;
+  padding: 6px 8px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+.comment-form button {
+  margin-left: 6px;
+  padding: 6px 12px;
+  background: #5c6bc0;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.comment-form button:hover {
+  background: #3f51b5;
+}
+
+/* 한줄평 */
+.comment-list {
+  margin-top: 10px;
+  background: #fafafa;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: left;
+  max-height: 140px;
+  overflow-y: auto;
+}
+
+.comment-item {
+  background: #f0f1ff;
+  border-radius: 8px;
+  padding: 6px 10px;
+  margin-bottom: 6px;
+}
+
+.comment-user {
+  font-weight: 600;
+  color: #3f51b5;
+  margin-right: 6px;
+}
+
+.comment-content {
+  display: inline;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.no-comment {
+  text-align: center;
+  color: #888;
+  font-size: 0.9rem;
+  padding: 8px 0;
+}

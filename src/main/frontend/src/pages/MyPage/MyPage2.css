@@ -1,0 +1,68 @@
+.mypage-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 25px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+.mypage-container h2 {
+  font-size: 1.6rem;
+  margin-bottom: 20px;
+  color: #00bfa5;
+}
+
+.user-info {
+  background: #f9f9f9;
+  padding: 15px 20px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+}
+
+.user-info p {
+  margin: 5px 0;
+  color: #555;
+}
+
+.liked-movies h3 {
+  font-size: 1.3rem;
+  margin-bottom: 12px;
+}
+
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 20px;
+}
+
+.liked-movie-card {
+  background: #fafafa;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  padding: 10px;
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.liked-movie-card:hover {
+  transform: translateY(-4px);
+}
+
+.liked-movie-card img {
+  width: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.liked-movie-card p {
+  margin-top: 8px;
+  font-weight: 500;
+  color: #333;
+}
+
+.no-movies {
+  color: #999;
+  text-align: center;
+  margin-top: 20px;
+}

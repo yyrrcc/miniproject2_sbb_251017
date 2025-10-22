@@ -1,0 +1,98 @@
+.detail-container {
+  width: 70%;
+  margin: 80px auto;
+  font-family: "Pretendard", sans-serif;
+}
+
+.detail-box {
+  border: 2px solid #eee;
+  padding: 30px;
+  border-radius: 15px;
+  background-color: #fff;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
+}
+
+.detail-info {
+  display: flex;
+  justify-content: space-between;
+  color: gray;
+  margin-bottom: 20px;
+}
+
+.detail-content {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin-bottom: 25px;
+  white-space: pre-wrap;
+}
+
+.detail-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.back-btn,
+.edit-btn {
+  text-decoration: none;
+  background-color: #503396;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-weight: 500;
+  transition: background 0.3s;
+}
+
+.back-btn:hover,
+.edit-btn:hover {
+  background-color: #6b52c0;
+}
+
+/* 댓글 */
+.comment-section {
+  margin-top: 50px;
+}
+
+.comment-section h3 {
+  color: #503396;
+  margin-bottom: 15px;
+}
+
+.comment-section ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.comment-section li {
+  background: #faf6ff;
+  padding: 10px 15px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.comment-form {
+  display: flex;
+  gap: 10px;
+}
+
+.comment-form input {
+  flex: 1;
+  padding: 10px;
+  border: 1.5px solid #ddd;
+  border-radius: 10px;
+}
+
+.comment-form button {
+  background-color: #503396;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.comment-form button:hover {
+  background-color: #6b52c0;
+}

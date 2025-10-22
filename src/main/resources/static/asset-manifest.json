@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/static/css/main.4cb4e34a.css",
+    "main.js": "/static/js/main.eb8ee9b8.js",
+    "static/media/frozen.jpg": "/static/media/frozen.54e779f7df73aaa90911.jpg",
+    "static/media/interstellar.jpg": "/static/media/interstellar.c8143b4968c5d27901ee.jpg",
+    "static/media/thelma.jpg": "/static/media/thelma.44bab8cdc9a80fa38209.jpg",
+    "static/media/lalaland.jpg": "/static/media/lalaland.14e836904387d16a6f96.jpg",
+    "static/media/substance.jpg": "/static/media/substance.838aa8a874144d90475a.jpg",
+    "index.html": "/index.html",
+    "main.4cb4e34a.css.map": "/static/css/main.4cb4e34a.css.map",
+    "main.eb8ee9b8.js.map": "/static/js/main.eb8ee9b8.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4cb4e34a.css",
+    "static/js/main.eb8ee9b8.js"
+  ]
+}

@@ -1,0 +1,58 @@
+.mypage-container {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.mypage-container h2 {
+  font-size: 1.8rem;
+  color: #1a237e;
+  margin-bottom: 20px;
+}
+
+.profile-form {
+  background: #f5f5f5;
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.profile-form label {
+  margin-top: 10px;
+  font-weight: 500;
+  color: #333;
+}
+
+.profile-form input {
+  width: 60%;
+  padding: 8px;
+  margin-top: 4px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.profile-form button {
+  margin-top: 15px;
+  padding: 8px 16px;
+  background: #3f51b5;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.profile-form button:hover {
+  background: #283593;
+}
+
+.mypage-movies {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
