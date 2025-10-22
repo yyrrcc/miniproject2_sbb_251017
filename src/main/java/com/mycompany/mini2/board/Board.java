@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -12,6 +13,7 @@ import com.mycompany.mini2.comment.Comment;
 import com.mycompany.mini2.member.Member;
 
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -43,6 +45,10 @@ public class Board {
 	
 	@UpdateTimestamp // 수정 할 땐 @UpdateTimestamp 사용
 	private LocalDateTime updatedAt;
+	
+	// 조회수 (초기값 0으로 지정)
+//	@ColumnDefault("0")
+	private Long views = 0L;
 	
 	// 게시글:유저 = n:1, 지연로딩 통해서 불필요한 값 제외 (성능 최적화)
 	@ManyToOne(fetch = FetchType.LAZY)
